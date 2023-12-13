@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var thirdOption: UIButton!
     
 
     var quizeLogic = QuizeLogic()
@@ -41,10 +42,15 @@ class ViewController: UIViewController {
     }
     
    @objc func updateUI(){
-     
+       
+       trueButton.setTitle(quizeLogic.getQuestionOptionsText()[0], for: .normal)
+       falseButton.setTitle(quizeLogic.getQuestionOptionsText()[1], for: .normal)
+       thirdOption.setTitle(quizeLogic.getQuestionOptionsText()[2], for: .normal)
+       
         
-        trueButton.backgroundColor = UIColor.clear
-        falseButton.backgroundColor = UIColor.clear
+    trueButton.backgroundColor = UIColor.clear
+    falseButton.backgroundColor = UIColor.clear
+    thirdOption.backgroundColor = UIColor.clear
        score.text = "Score " + String(quizeLogic.userScore)
        questionLabel.text = quizeLogic.getQuestionText()
        //to show progress
